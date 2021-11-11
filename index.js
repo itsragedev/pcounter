@@ -1,8 +1,7 @@
-const Discord = require('discord.js');
-// loads up the discord.js library
-const client = new Discord.Client();
+const { Client, Intents } = require('discord.js');
+const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 const fs = require('fs');
-const prefix = "!";
+const prefix = "p->";
 const cooldown = new Set();
 const ON_DEATH = require('death');
 /*const dotenv = require('dotenv');
@@ -25,7 +24,7 @@ client.on("ready", () => {
 	console.log(`Bot is online!`);
 	client.user.setPresence({
 		game: {
-			name: 'viruses to your computer',
+			name: 'viruses to your computer | prefix is p->',
 			type: 'STREAMING' // PLAYING, WATCHING, LISTENING, STREAMING
 		},
 		status: 'online' // online, idle, dnd, invisible
@@ -59,4 +58,4 @@ client.on("message", async message => {
 	}
 });
 
-client.login(process.env.TOKEN);
+client.login(process.env.TOKEN)
