@@ -1,1 +1,1 @@
-release: release-app.sh
+release: npm update
