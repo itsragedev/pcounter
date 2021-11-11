@@ -1,2 +1,2 @@
-release: ./release-app.sh
-web: node ./index.js
+release: release-app.sh
+web: node index.js
