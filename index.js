@@ -34,7 +34,7 @@ client.on("ready", () => {
 fs.readdir("./commands/", (err, files) => {
 	if (err) return console.error(err);
 	files.forEach(file => {
-	let eFunction = require(`./commands/${file}`);
+	let eFunction = require(`commands/${file}`);
 	let eName = file.split(".")[0];
 	client.on(eName, (...args) => eFunction.run(client, ...args));
 	});
@@ -51,7 +51,7 @@ client.on("message", async message => {
 	}
 
 	try {
-		let cmdFile = require(`./commands/${command}.js`);
+		let cmdFile = require(`commands/${command}.js`);
 		cmdFile.run(client, message, args);
 	} catch (err) {
 		console.error(err);
