@@ -1,15 +1,15 @@
 const Discord = require('discord.js');
 // loads up the discord.js library
 const client = new Discord.Client();
-const fs = require('fs')
-const prefix = "!"
+const fs = require('fs');
+const prefix = "!";
 const cooldown = new Set();
 const ON_DEATH = require('death');
 /*const dotenv = require('dotenv');
 
 dotenv.config();*/
 
-const money = require('./money.json')
+const money = require('./money.json');
 
 ON_DEATH(function(signal, err) {
 	client.destroy();
@@ -18,19 +18,18 @@ ON_DEATH(function(signal, err) {
 	} catch (err) {
 		console.error("There Is Eror:"+err);
 	}
-	console.log("Studown In BrocresS!")
-})
+	console.log("Studown In BrocresS!");
+});
 
 client.on("ready", () => {
-	console.log(`Bot is online!`)
+	console.log(`Bot is online!`);
 	client.user.setPresence({
 		game: {
 			name: 'viruses to your computer',
 			type: 'STREAMING' // PLAYING, WATCHING, LISTENING, STREAMING
 		},
 		status: 'online' // online, idle, dnd, invisible
-	})
-})
+	});
 });
 // command handler
 fs.readdir("./commands/", (err, files) => {
@@ -43,14 +42,13 @@ fs.readdir("./commands/", (err, files) => {
 });
 
 client.on("message", async message => {
-
 	if (message.author.bot) return;
 	if (message.content.indexOf(prefix) !== 0) return;
 	const args = message.content.slice(prefix.length).trim().split(/ +/g);
 	const command = args.shift().toLowerCase();
 
 	if (command = "test") {
-		message.reply("message")
+		message.reply("message");
 	}
 
 	try {
@@ -61,4 +59,4 @@ client.on("message", async message => {
 	}
 });
 
-client.login(process.env.TOKEN)
+client.login(process.env.TOKEN);
