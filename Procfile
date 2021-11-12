@@ -1,1 +1,1 @@
-release: npm update
+release: node deploy-cmds.js
