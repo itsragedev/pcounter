@@ -1,1 +1,9 @@
+title: pCounter
+author: itsragedev
+description: > # this means to ignore newlines until "baseurl:"
+  Discord Bot
+# social links
+twitter_username: itsrageyt
+
+show_excerpts: false
 theme: jekyll-theme-cayman
