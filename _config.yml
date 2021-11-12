@@ -1,7 +1,19 @@
 title: pCounter
 author: itsragedev
 description: > # this means to ignore newlines until "baseurl:"
-  Discord Bot
+  https://[insert dumb thing here]
+tags:
+ - lol
+preferences:
+  - type: dropdown
+    name: language
+    label: Language
+    description: Choose your preferred language.
+    options:
+      - label: lmao
+        value: lol
+      - label: rofl
+        value: xd
 # social links
 twitter_username: itsrageyt
 
