@@ -1,61 +1,46 @@
-const { Client, Intents } = require('discord.js');
-const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 const fs = require('fs');
-const prefix = "p->";
-const cooldown = new Set();
+const { Client, Collection, Intents, Permissions } = require('discord.js');
+
+const client = new Client({
+	intents: [Intents.FLAGS.GUILDS]
+});
+
+client.commands = new Collection();
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+
+for (const file of commandFiles) {
+	const command = require(`./commands/${file}`);
+	client.commands.set(command.data.name, command);
+}
+
 const ON_DEATH = require('death');
-/*const dotenv = require('dotenv');
-
-dotenv.config();*/
-
-const money = require('./money.json');
-
 ON_DEATH(function(signal, err) {
-	client.destroy();
+	console.log("[?] Shutting down...");
 	try {
 		client.destroy();
 	} catch (err) {
-		console.error("There Is Eror:"+err);
+		console.error("[!] Shutdown failed because of: " + err);
 	}
-	console.log("Studown In BrocresS!");
 });
 
 client.on("ready", () => {
-	console.log(`Bot is online!`);
-	client.user.setPresence({
-		game: {
-			name: 'viruses to your computer | prefix is p->',
-			type: 'STREAMING' // PLAYING, WATCHING, LISTENING, STREAMING
-		},
-		status: 'online' // online, idle, dnd, invisible
-	});
-});
-// command handler
-fs.readdir("./commands/", (err, files) => {
-	if (err) return console.error(err);
-	files.forEach(file => {
-	let eFunction = require(`commands/${file}`);
-	let eName = file.split(".")[0];
-	client.on(eName, (...args) => eFunction.run(client, ...args));
-	});
+	console.log('[+] Bot has logged in and is online as ' + client.user.username);
+	client.user.setActivity(String('pCounter | /help'), { type: 'PLAYING' });
 });
 
-client.on("message", async message => {
-	if (message.author.bot) return;
-	if (message.content.indexOf(prefix) !== 0) return;
-	const args = message.content.slice(prefix.length).trim().split(/ +/g);
-	const command = args.shift().toLowerCase();
+client.on('interactionCreate', async interaction => {
+	if (!interaction.isCommand()) return;
+	
+	const command = client.commands.get(interaction.commandName);
 
-	if (command = "test") {
-		message.reply("message");
-	}
+	if (!command) return;
 
 	try {
-		let cmdFile = require(`commands/${command}.js`);
-		cmdFile.run(client, message, args);
-	} catch (err) {
-		console.error(err);
+		await command.execute(interaction);
+	} catch (error) {
+		console.error('[!] Error while executing command request. Full log:\n----------------\n' + error + '\n----------------');
+		await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
 	}
 });
 
-client.login(process.env.TOKEN)
+client.login(process.env.TOKEN);

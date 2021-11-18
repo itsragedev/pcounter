@@ -1,21 +1,24 @@
 {
 	"name": "pCounter",
-	"version": "1.0.0",
-	"description": "bot",
+	"version": "v0.1.2a",
+	"description": "Simple discord bot utilising the discord.js library",
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "node index.js"
+		"start": "node index.js",
+		"deploy": "node deploy-cmds.js"
 	},
 	"keywords": [
-		"lmao"
+		"discord bot", "discord", "bot", "discord.js", "pCounter"
 	],
-	"author": "me",
-	"license": "ISC",
+	"author": "itsragedev",
+	"license": "GNU-AGPL-3.0",
 	"dependencies": {
+		"@discordjs/builders": "^0.8.2",
+		"@discordjs/rest": "^0.1.0-canary.0",
 		"death": "^1.1.0",
-		"discord.js": "^13.3.1",
-		"dotenv": "^10.0.0"
+		"discord-api-types": "^0.24.0",
+		"discord.js": "^13.3.1"
 	},
 	"engines": {
 		"node": "17.x"

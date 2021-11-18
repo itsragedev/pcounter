@@ -16,7 +16,7 @@ Originally created to learn how to deploy Node.js code to Heroku. The code is he
 
 ## Usage
 
-Add pCounter to your server using [this link](https://discord.com/api/oauth2/authorize?client_id=908292475536412672&permissions=8&scope=bot%20applications.commands). Type /help to view the help screen. Easy as that lmao
+Add pCounter to your server using [this link](https://discord.com/api/oauth2/authorize?client_id=908292475536412672&permissions=8&scope=bot%20applications.commands). Type <code>/help</code> in chat to view the help screen. Some commands you could try out are <code>/info</code>, <code>/say</code> or even <code>/serverinfo</code>.
 
 ## Contribute
 
