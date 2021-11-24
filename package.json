@@ -1,10 +1,9 @@
 {
 	"name": "pCounter",
-	"version": "v0.1.2a",
+	"version": "v0.1.3a",
 	"description": "Simple discord bot utilising the discord.js library",
 	"main": "index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
 		"start": "node index.js",
 		"deploy": "node deploy-cmds.js"
 	},
