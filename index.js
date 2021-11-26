@@ -24,7 +24,7 @@ ON_DEATH(function(signal, err) {
 });
 
 client.on("ready", () => {
-	console.log('[+] Bot has logged in and is online as ' + client.user.username);
+	console.log('[+] Bot has logged in and is online as ' + client.user.username + '#' + client.user.discriminator);
 	client.user.setActivity(String('pCounter | /help'), { type: 'PLAYING' });
 });
 

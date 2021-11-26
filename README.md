@@ -1,6 +1,6 @@
 # pCounter
 
-A simple Node.js Discord Bot running on Heroku.
+A simple Node.js Discord Bot with slash commands, embeds and stuff.
 
 ![Issues](https://img.shields.io/github/issues/itsragedev/pcounter)
 ![Forks](https://img.shields.io/github/forks/itsragedev/pcounter)
@@ -14,9 +14,11 @@ A simple Node.js Discord Bot running on Heroku.
 
 Originally created to learn how to deploy Node.js code to Heroku. The code is here on GitHub because it would not require me to use the Heroku CLI and thus, save myself from all the (nonexistent) hassle.
 
+All jokes aside, hope you like it.
+
 ## Usage
 
-Add pCounter to your server using [this link](https://discord.com/api/oauth2/authorize?client_id=908292475536412672&permissions=8&scope=bot%20applications.commands). Type <code>/help</code> in chat to view the help screen. Some commands you could try out are <code>/info</code>, <code>/say</code> or even <code>/serverinfo</code>.
+Add pCounter to your server using [this link](https://itsragedev.github.io/pcounter/invite). Type <code>/help</code> in chat to view the help screen. Some commands you could try out are <code>/info</code>, <code>/stats</code> or <code>/serverinfo</code>.
 
 ## Contribute
 
