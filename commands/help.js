@@ -12,6 +12,8 @@ const helpMsg = new MessageEmbed()
 		{ name: '``/info``', value: 'Displays info about the bot.' },
 		{ name: '``/serverinfo``', value: 'Shows info about the current server.' },
 		{ name: '``/stats``', value: 'Bot stats, like CPU or RAM usage, the amount of servers the bot is a member of, etc.' },
+		{ name: '``/kick <user> [reason]``', value: 'Kicks a user from your server.' },
+		{ name: '``/ban <user> [reason]``', value: 'Bans a user from your server.' },
 		{ name: '``/say <message> [channel]``', value: 'Replies with the same message.' },
 		{ name: '``/randomlink``', value: 'Fetches a random URL from the bot\'s database and posts it.' },
 	)
